@@ -5,6 +5,7 @@
 package bildspeldemo;
 
 import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
 
 
 public class BildSpelDemo {
@@ -22,20 +23,28 @@ public class BildSpelDemo {
                 else{
                     input = JOptionPane.showInputDialog("Write number 2 to 10 !");
                     again = true;
-                }
-                    
+                }        
             }
-            catch(Exception exc){
+            catch(NumberFormatException exc){
                 input = JOptionPane.showInputDialog("Write number 2 to 10 !");
                 again = true;
             }
-        } 
+        }
+        
         SpelCentral sc = new SpelCentral(row);
     }
-    
     public static void main(String[] args) {
-        BildSpelDemo play = new BildSpelDemo();
-       
+//        SwingUtilities.invokeLater(new Runnable(){
+//            public void run(){
+//                new BildSpelDemo();
+//            }    
+//        });  
+        SwingUtilities.invokeLater(new Runnable(){
+            public void run(){
+                new BildSpel();
+            }    
+        });  
     }
+    
 
 }
